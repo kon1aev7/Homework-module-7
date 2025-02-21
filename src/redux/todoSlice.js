@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addTodo, deleteTodo, fetchData } from "./todosOps";
 
 const initialState = {
   items: [],
@@ -35,12 +36,28 @@ const slice = createSlice({
       state.isLoading = action.payload;
     },
   },
+  extraReducers: builder => {
+    builder.addCase(fetchData.fulfilled, (state, action) => {
+      state.items = action.payload;
+    })
+      .addCase(fetchData.pending, (state, action) => {
+        state.isLoading = true
+      })
+      .addCase(fetchData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = action.payload;
+      }).addCase(deleteTodo.fulfilled, (state, action) => {
+        state.items = state.items.filter(item => item.id !== action.payload);
+      })
+    .addCase(addTodo.fulfilled, (state, action) => {
+      state.items.push(action.payload);
+    })
+  },
 });
 
 export const todoReducer = slice.reducer;
 export const {
-  deleteTodo,
-  addTodo,
+
   editTodo,
   fetchDataSuccess,
   setIsError,

@@ -1,8 +1,9 @@
 import { FaStar } from "react-icons/fa";
 import s from "./TodoList.module.css";
 import { useDispatch } from "react-redux";
-import { deleteTodo, editTodo } from "../../redux/todoSlice";
+import { editTodo } from "../../redux/todoSlice";
 import { useState } from "react";
+import { deleteTodo } from "../../redux/todosOps";
 
 const Item = ({ isCompleted, todo, id, isFavorite }) => {
   const dispatch = useDispatch();
