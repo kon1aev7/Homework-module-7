@@ -6,6 +6,7 @@ import { addTodo } from "../../redux/todosOps";
 export const AddForm = () => {
   const initialValues = { todo: "" };
   const dispatch = useDispatch();
+
   const onSubmit = (values, options) => {
     const newObj = {
       todo: values.todo,

@@ -7,5 +7,4 @@ export const store = configureStore({
     todos: todoReducer,
     filter: filterReducer,
   },
-
 });
