@@ -8,11 +8,14 @@ import { addTodo, fetchData } from "../../redux/todosOps";
 import TodoForm from "../TodoForm";
 import Modal from "../Modal/Modal";
 import Filter from "./Filter";
-import { SelectUncompletedTodos } from "../../redux/selectors";
+import {
+  SelectUncompletedTodos,
+  SelectUncompletedTodosMemo,
+} from "../../redux/selectors";
 export const TodoList = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const uncompletedTodos = useSelector(SelectUncompletedTodos);
+  const uncompletedTodos = useSelector(SelectUncompletedTodosMemo);
   const handleSubmit = (values, options) => {
     dispatch(addTodo(values));
     setIsOpen(false);
