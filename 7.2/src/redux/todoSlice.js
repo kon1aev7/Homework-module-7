@@ -30,8 +30,12 @@ const slice = createSlice({
         state.items.push(action.payload);
       })
       .addCase(editTodo.fulfilled, (state, action) => {
-        const item = state.items.find((item) => item.id === action.payload.id);
-        item.todo = action.payload.todo;
+        const itemIndex = state.items.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        if (itemIndex !== -1) {
+          state.items[itemIndex] = action.payload;
+        }
       });
   },
 });

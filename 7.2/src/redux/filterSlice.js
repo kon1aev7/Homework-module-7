@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   filter: "",
+  status: "all",
 };
 
 const slice = createSlice({
@@ -11,8 +12,11 @@ const slice = createSlice({
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
+    changeVisibilityStatus: (state, action) => {
+      state.status = action.payload;
+    },
   },
 });
 
 export const filterReducer = slice.reducer;
-export const { setFilter } = slice.actions;
+export const { setFilter, changeVisibilityStatus } = slice.actions;
