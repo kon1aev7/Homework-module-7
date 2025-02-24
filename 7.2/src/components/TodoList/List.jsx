@@ -5,10 +5,7 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 import TodoForm from "../TodoForm";
 import { editTodo } from "../../redux/todosOps";
-import {
-  selectVisibilityTaskByStatus,
-  selectVisibilityTaskByStatusMemo,
-} from "../../redux/selectors";
+import { selectVisibilityTaskByStatusMemo } from "../../redux/selectors";
 
 export const List = () => {
   const todos = useSelector(selectVisibilityTaskByStatusMemo);

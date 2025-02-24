@@ -8,10 +8,7 @@ import { addTodo, fetchData } from "../../redux/todosOps";
 import TodoForm from "../TodoForm";
 import Modal from "../Modal/Modal";
 import Filter from "./Filter";
-import {
-  SelectUncompletedTodos,
-  SelectUncompletedTodosMemo,
-} from "../../redux/selectors";
+import { SelectUncompletedTodosMemo } from "../../redux/selectors";
 export const TodoList = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
